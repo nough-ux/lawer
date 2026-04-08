@@ -3,7 +3,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>مكتب الحسَن — خبرةوثقة</title>
+    <title>مكتب الحسَن — خبرة و ثقة</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23caa33b'/%3E%3Cstop offset='100%25' stop-color='%23f7d77a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Ctext x='32' y='41' text-anchor='middle' font-family='Cairo,Arial,sans-serif' font-size='24' font-weight='700' fill='%23081018'%3EAH%3C/text%3E%3C/svg%3E">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root{
@@ -100,9 +101,30 @@
         }
         .hero-left h1{font-size:42px;line-height:1.25;margin:0 0 14px}
         .hero-left p{color:var(--muted);margin:0 0 18px;font-size:17px;line-height:1.9}
-        .stats{display:flex;gap:20px;flex-wrap:wrap}
-        .stat{background:linear-gradient(180deg,rgba(19,30,46,0.98),rgba(11,18,29,0.98));padding:16px 14px;border-radius:16px;min-width:140px;text-align:center;border:none;box-shadow:0 12px 24px rgba(0,0,0,0.24)}
-        .stat strong{display:block;font-size:18px;color:var(--gold)
+        .stats{display:flex;gap:14px;flex-wrap:wrap}
+        .stat{background:linear-gradient(180deg,rgba(19,30,46,0.98),rgba(11,18,29,0.98));padding:14px 12px;border-radius:16px;min-width:128px;text-align:center;border:none;box-shadow:0 12px 24px rgba(0,0,0,0.24);font-size:14px;line-height:1.6}
+        .stat strong{display:block;font-size:17px;color:var(--gold)
+        }
+        .hero-left .stats{
+            justify-content:center;
+            gap:10px;
+            width:100%;
+        }
+        .hero-left .stat{
+            min-width:0;
+            flex:1 1 140px;
+            max-width:calc(33.333% - 8px);
+            padding:14px 10px;
+        }
+        .hero-left .stat strong{
+            font-size:18px;
+            line-height:1.5;
+        }
+        .hero-left .stat .muted{
+            display:block;
+            margin-top:6px;
+            font-size:14px;
+            line-height:1.7;
         }
         .hero-right{background:#111a27;padding:0;border-radius:0;border:none;display:flex;flex-direction:column;min-height:100%}
         .booking{display:flex;flex-direction:column;gap:10px}
@@ -136,12 +158,120 @@
             line-height:1.9;
         }
         .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+        .status-popup{
+            position:fixed;
+            inset:0;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            padding:20px;
+            background:rgba(4,8,14,0.72);
+            backdrop-filter:blur(8px);
+            opacity:0;
+            pointer-events:none;
+            transition:opacity .25s ease;
+            z-index:120;
+        }
+        .status-popup.is-visible{
+            opacity:1;
+            pointer-events:auto;
+        }
+        .status-popup-card{
+            width:min(460px,100%);
+            padding:28px 24px;
+            border-radius:22px;
+            background:linear-gradient(180deg,rgba(15,23,36,0.98),rgba(9,16,26,0.98));
+            box-shadow:0 24px 60px rgba(0,0,0,0.34);
+            border:1px solid rgba(255,255,255,0.08);
+            text-align:center;
+            transform:translateY(18px) scale(.98);
+            transition:transform .25s ease;
+        }
+        .status-popup.is-visible .status-popup-card{
+            transform:translateY(0) scale(1);
+        }
+        .status-popup-badge{
+            width:68px;
+            height:68px;
+            margin:0 auto 16px;
+            border-radius:50%;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:28px;
+            font-weight:700;
+            color:#081018;
+            background:linear-gradient(135deg,var(--gold-soft),var(--gold));
+            box-shadow:0 14px 30px rgba(202,163,59,0.28);
+        }
+        .status-popup-card.is-error .status-popup-badge{
+            color:#fff;
+            background:linear-gradient(135deg,#d86a6a,#a92f2f);
+            box-shadow:0 14px 30px rgba(169,47,47,0.24);
+        }
+        .status-popup-card h3{
+            margin:0 0 10px;
+            color:#fff;
+            font-size:24px;
+        }
+        .status-popup-card p{
+            margin:0;
+            color:var(--muted);
+            line-height:1.9;
+        }
+        .status-popup-card button{
+            margin-top:20px;
+            min-width:130px;
+        }
+        .contact-popup-card{
+            width:min(560px,100%);
+            padding:26px 24px;
+            border-radius:24px;
+            background:linear-gradient(180deg,rgba(15,23,36,0.98),rgba(9,16,26,0.98));
+            box-shadow:0 24px 60px rgba(0,0,0,0.34);
+            border:1px solid rgba(255,255,255,0.08);
+            transform:translateY(18px) scale(.98);
+            transition:transform .25s ease;
+        }
+        .status-popup.is-visible .contact-popup-card{
+            transform:translateY(0) scale(1);
+        }
+        .popup-header{
+            display:flex;
+            align-items:flex-start;
+            justify-content:space-between;
+            gap:16px;
+            margin-bottom:18px;
+        }
+        .popup-header h3{
+            margin:0 0 6px;
+            color:#fff;
+            font-size:24px;
+        }
+        .popup-header p{
+            margin:0;
+            color:var(--muted);
+            line-height:1.8;
+        }
+        .popup-close{
+            margin:0;
+            min-width:auto;
+            width:42px;
+            height:42px;
+            border-radius:12px;
+            padding:0;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:20px;
+            flex:0 0 auto;
+        }
         /* Footer */
         footer{padding:28px 20px;border-top:none;margin-top:40px}
         .photo-shell{
             position:relative;
             border-radius:22px;
-            padding:18px 18px 0;
+            padding:20px 20px 10px;
             overflow:hidden;
             background:linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.015));
             border:1px solid rgba(255,255,255,0.14);
@@ -158,8 +288,8 @@
         .photo-shell::after{content:"";position:absolute;inset:auto 10% 12px;height:28px;background:radial-gradient(circle, rgba(0,0,0,0.4), transparent 70%);filter:blur(14px);pointer-events:none}
         .carousel-copy{
             padding:16px 14px 18px;
-            width:100%;
-            margin-top:10px;
+            width:calc(100% - 8px);
+            margin-top:12px;
             border-radius:18px;
             background:linear-gradient(180deg, rgba(10,17,28,0.92), rgba(15,23,36,0.9));
             border:1px solid rgba(255,255,255,0.12);
@@ -192,6 +322,48 @@
         @media(max-width:480px){
             header{padding:12px 14px}
             .container{padding:18px 14px}
+            .status-popup{
+                padding:12px;
+                align-items:flex-start;
+                overflow-y:auto;
+            }
+            .contact-popup-card{
+                width:100%;
+                max-height:calc(100vh - 24px);
+                margin:8px 0;
+                padding:18px 16px;
+                border-radius:18px;
+                overflow-y:auto;
+            }
+            .popup-header{
+                margin-bottom:12px;
+                gap:10px;
+            }
+            .popup-header h3{
+                font-size:20px;
+                margin-bottom:4px;
+            }
+            .popup-header p{
+                font-size:13px;
+                line-height:1.7;
+            }
+            #contactForm{
+                gap:8px !important;
+            }
+            #contactForm label{
+                font-size:12px;
+            }
+            #contactForm input,
+            #contactForm textarea{
+                padding:8px 10px;
+            }
+            #contactForm textarea{
+                min-height:96px;
+            }
+            #contactForm div[style*="margin-top:10px"]{
+                margin-top:6px !important;
+                gap:8px !important;
+            }
             #home{
                 width:100%;
                 max-width:100%;
@@ -248,8 +420,12 @@
                 overflow:hidden;
             }
             .stats{gap:10px}
-            .stat{min-width:calc(50% - 5px);padding:12px 10px}
-            .stat strong{font-size:16px}
+            .stat{min-width:calc(50% - 5px);padding:10px 8px}
+            .stat strong{font-size:15px}
+            .stats .stat{
+                font-size:13px;
+                line-height:1.6;
+            }
             .cta,button.primary,button.ghost{padding:12px 14px;font-size:15px}
             .hero-left button.primary{
                 width:auto;
@@ -298,6 +474,41 @@
             .faq-item{padding:16px 14px;border-radius:16px}
             .faq-item strong{font-size:17px;line-height:1.7}
             section{padding:34px 0}
+            .hero-left .stats{
+                gap:8px;
+            }
+            .hero-left .stat{
+                min-width:calc(33.333% - 6px);
+                padding:11px 7px;
+            }
+            .hero-left .stat strong{
+                font-size:15px;
+            }
+            .hero-left .stat .muted{
+                font-size:13px;
+            }
+            #contact{
+                scroll-margin-top:24px;
+            }
+            #contact h2{
+                margin-bottom:8px;
+            }
+            #contact .lead{
+                margin-bottom:12px;
+                font-size:14px;
+                line-height:1.8;
+            }
+            #contact .card{
+                padding:16px;
+                gap:10px !important;
+            }
+            #contact .card p{
+                margin:0;
+                line-height:1.8;
+            }
+            #contact .card div[style*="margin-top:16px"]{
+                margin-top:10px !important;
+            }
         }
         /* small helpers */
         .muted{color:var(--muted)}
@@ -327,7 +538,7 @@
         #lawyer-img{transition:opacity .35s ease;will-change:opacity;display:block;width:100%;height:390px;max-width:100%;object-fit:contain;object-position:center bottom;border-radius:12px;position:relative;z-index:1}
         .hero-right .carousel{display:flex;flex-direction:column;justify-content:center;position:relative}
         .hero-right.small-slide #lawyer-img{height:390px}
-        .carousel-text{font-size:15px;transition:opacity .35s ease;opacity:1;overflow:visible;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:170px;height:170px}
+        .carousel-text{font-size:15px;transition:opacity .35s ease;opacity:1;overflow:visible;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:170px;height:170px;width:100%}
         .carousel-dots button{transition:background .2s ease}
         /* Targeted smaller size for a specific long stat text */
         .small-stat{font-size:13px}
@@ -378,18 +589,18 @@
             <div class="hero-left">
                 <h1>مكتب الحسَن — مكتب محاما رفيع المستوى بخبرة تفوق 10 سنوات</h1>
                 <p class="lead">تمثيل قانوني متميز للأفراد والشركات. أكثر من 2000+ عميل موثوق. قيادة قانونية ذات مكانة عالية والتزام دائم بتحديث المعرفة القانونية.</p>
-                <div class="stats">
+                <div class="stats hero-stats">
                     <div class="stat">
                         <strong>10+</strong>
-                        سنوات خبرة
+                        <span class="muted">سنوات خبرة</span>
                     </div>
                     <div class="stat">
                         <strong>2000+</strong>
-                        عميل خدموا
+                        <span class="muted">عميل خدموا</span>
                     </div>
                     <div class="stat">
-                        <strong>جميع المجالات القانونيه</strong>
-                        سمعة ومكانة
+                        <strong class="small-stat">جميع المجالات القانونيه</strong>
+                        <span class="muted">سمعة ومكانة</span>
                     </div>
                 </div>
                 <div style="margin-top:18px;display:flex;gap:12px">
@@ -495,7 +706,7 @@
                         <h4>ساعات العمل</h4>
                         <p class="muted">كل يوم من 12صباحًا — 12 مساءًا معدا يوم الخميس:مغلق</p>
                     </div>
-                    <button class="primary" onclick="openExternalForm()">إرسال الرسالة</button>
+                    <button type="button" class="primary" onclick="openContactForm()">إرسال الرسالة</button>
                 </div>
             </div>
         </section>
@@ -503,7 +714,7 @@
         <footer>
             <div style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:12px">
                 <div>
-                    <div style="font-weight:700">مكتب أحمد حسن للمحاماة</div>
+                    <div style="font-weight:700">مكتب الحسن للمحاماة</div>
                     <div class="muted" style="font-size:13px">ثقة، خبرة، ونتائج ملموسة.</div>
                 </div>
                 <div class="muted" style="font-size:13px">© <span id="year"></span> جميع الحقوق محفوظة</div>
@@ -511,19 +722,139 @@
         </footer>
     </main>
 
-    
+    <div id="contactPopup" class="status-popup" aria-hidden="true">
+        <div class="contact-popup-card" role="dialog" aria-modal="true" aria-labelledby="contactPopupTitle">
+            <div class="popup-header">
+                <div>
+                    <h3 id="contactPopupTitle">إرسال الرسالة</h3>
+                    <p>املأ البيانات التالية وسيتم تجهيز الرسالة وإرسالها إلى بريد المكتب الإلكتروني.</p>
+                </div>
+                <button type="button" class="ghost popup-close" onclick="hideContactForm()">×</button>
+            </div>
+            <form id="contactForm" action="https://formspree.io/f/meepdean" method="POST" novalidate onsubmit="submitContact(event)" style="display:flex;flex-direction:column;gap:10px">
+                <input type="hidden" name="_subject" value="رسالة جديدة من نموذج تواصل معنا">
+                <label>الاسم الكامل</label>
+                <input id="ct_name" name="الاسم الكامل" required placeholder="الاسم">
+                <label>البريد الإلكتروني(هذا الحقل اختياري)</label>
+                <input id="ct_email" name="البريد الإلكتروني" type="email" placeholder="name@example.com">
+                <label>الهاتف</label>
+                <input id="ct_phone" name="الهاتف" type="tel" inputmode="numeric" maxlength="11" required placeholder="01XXXXXXXXX" oninput="this.value=this.value.replace(/[^0-9]/g,'').slice(0,11)">
+                <label>رسالتك</label>
+                <textarea id="ct_message" name="رسالتك" rows="5" required placeholder="تفاصيل الطلب أو القضية"></textarea>
+                <div style="margin-top:10px;display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+                    <button type="submit" class="primary">إرسال الرسالة</button>
+                    <span class="muted" style="font-size:13px">سيتم تجهيز الرسالة وإرسالها إلى بريد المكتب الإلكتروني.</span>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="statusPopup" class="status-popup" aria-hidden="true">
+        <div id="statusPopupCard" class="status-popup-card" role="dialog" aria-modal="true" aria-labelledby="statusPopupTitle">
+            <div id="statusPopupBadge" class="status-popup-badge">✓</div>
+            <h3 id="statusPopupTitle">تم إرسال الرسالة</h3>
+            <p id="statusPopupMessage">تم إرسال الرسالة بنجاح. سنعاود التواصل معك قريبًا.</p>
+            <button type="button" class="primary" onclick="hideStatusPopup()">حسنًا</button>
+        </div>
+    </div>
+
 
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        function openExternalForm(){
-            const url = 'https://form.jotform.com/260938315744564';
-            window.open(url, '_blank', 'noopener');
+        function openContactForm(){
+            const popup = document.getElementById('contactPopup');
+            popup.classList.add('is-visible');
+            popup.setAttribute('aria-hidden', 'false');
+        }
+
+        function hideContactForm(){
+            const popup = document.getElementById('contactPopup');
+            popup.classList.remove('is-visible');
+            popup.setAttribute('aria-hidden', 'true');
+        }
+
+        function showStatusPopup(title, message, isError){
+            const popup = document.getElementById('statusPopup');
+            const card = document.getElementById('statusPopupCard');
+            const badge = document.getElementById('statusPopupBadge');
+            const titleEl = document.getElementById('statusPopupTitle');
+            const messageEl = document.getElementById('statusPopupMessage');
+
+            titleEl.textContent = title;
+            messageEl.textContent = message;
+            badge.textContent = isError ? 'X' : '✓';
+            card.classList.toggle('is-error', !!isError);
+            popup.classList.add('is-visible');
+            popup.setAttribute('aria-hidden', 'false');
+        }
+
+        function hideStatusPopup(){
+            const popup = document.getElementById('statusPopup');
+            popup.classList.remove('is-visible');
+            popup.setAttribute('aria-hidden', 'true');
         }
 
         function submitContact(e){
-            e && e.preventDefault && e.preventDefault();
-            openExternalForm();
+            if(e && e.preventDefault) e.preventDefault();
+            const form = document.getElementById('contactForm');
+            const submitButton = form.querySelector('button[type="submit"]');
+            const nameInput = document.getElementById('ct_name');
+            const emailInput = document.getElementById('ct_email');
+            const phoneInput = document.getElementById('ct_phone');
+            const messageInput = document.getElementById('ct_message');
+            const formData = new FormData(form);
+
+            if(!nameInput.value.trim()){
+                nameInput.focus();
+                showStatusPopup('الاسم الكامل مطلوب', 'يرجى إدخال الاسم الكامل.', true);
+                return;
+            }
+
+            if(emailInput.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim())){
+                emailInput.focus();
+                showStatusPopup('البريد الإلكتروني غير صحيح', 'يرجى إدخال البريد الإلكتروني بالشكل الصحيح: name@example.com', true);
+                return;
+            }
+
+            if(!/^\d{11}$/.test(phoneInput.value.trim())){
+                phoneInput.focus();
+                showStatusPopup('رقم الهاتف غير مكتمل', 'يرجى إدخال رقم الهاتف بالشكل الصحيح: 01XXXXXXXXX', true);
+                return;
+            }
+
+            if(!messageInput.value.trim()){
+                messageInput.focus();
+                showStatusPopup('الرسالة مطلوبة', 'يرجى كتابة تفاصيل الطلب أو القضية.', true);
+                return;
+            }
+
+            submitButton.disabled = true;
+            submitButton.textContent = 'جاري الإرسال...';
+
+            fetch(form.action, {
+                method: 'POST',
+                headers: { 'Accept': 'application/json' },
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.ok === true || data.next){
+                    hideContactForm();
+                    showStatusPopup('تم إرسال الرسالة', 'تم إرسال الرسالة بنجاح. سنعاود التواصل معك قريبًا.', false);
+                    form.reset();
+                    return;
+                }
+
+                throw new Error('Submission failed');
+            })
+            .catch(() => {
+                showStatusPopup('تعذر إرسال الرسالة', 'تعذر إرسال الرسالة الآن. يرجى المحاولة مرة أخرى بعد قليل.', true);
+            })
+            .finally(() => {
+                submitButton.disabled = false;
+                submitButton.textContent = 'إرسال الرسالة';
+            });
         }
 
         function toggleFAQ(el){
@@ -536,7 +867,11 @@
         document.querySelectorAll('a[href^="#"]').forEach(a=>{
             a.addEventListener('click', function(e){
                 const target = document.querySelector(this.getAttribute('href'));
-                if(target){ e.preventDefault(); window.scrollTo({top: target.offsetTop - 60, behavior:'smooth'}); }
+                if(target){
+                    e.preventDefault();
+                    const offset = window.innerWidth <= 480 ? 24 : 60;
+                    window.scrollTo({top: target.offsetTop - offset, behavior:'smooth'});
+                }
             });
         });
 
@@ -645,10 +980,10 @@
             });
 
             function renderStats(s){
-                let html = `<div class="stats" style="justify-content:center;flex-wrap:nowrap;gap:10px;margin-top:12px">`;
+                let html = `<div class="stats" style="justify-content:center;flex-wrap:wrap;gap:8px;margin-top:12px;width:100%">`;
                 html += s.map(it => {
                     const small = (it.value === 'الاستئناف العالي / مجلس الدولة') ? ' class="small-stat"' : '';
-                    return `<div class="stat" style="min-width:140px"><strong${small}>${it.value}</strong><div class="muted" style="font-size:13px;margin-top:6px">${it.label}</div></div>`;
+                    return `<div class="stat" style="min-width:0;flex:1 1 140px;max-width:calc(33.333% - 6px)"><strong${small}>${it.value}</strong><div class="muted" style="font-size:13px;margin-top:6px">${it.label}</div></div>`;
                 }).join('');
                 html += `</div>`;
                 return html;
