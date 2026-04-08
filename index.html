@@ -336,38 +336,38 @@
                 width:100%;
                 max-height:calc(100vh - 24px);
                 margin:8px 0;
-                padding:18px 16px;
+                padding:14px 14px;
                 border-radius:18px;
                 overflow-y:auto;
             }
             .popup-header{
-                margin-bottom:12px;
-                gap:10px;
+                margin-bottom:10px;
+                gap:8px;
             }
             .popup-header h3{
-                font-size:20px;
-                margin-bottom:4px;
+                font-size:18px;
+                margin-bottom:2px;
             }
             .popup-header p{
-                font-size:13px;
-                line-height:1.7;
+                font-size:12px;
+                line-height:1.6;
             }
             #contactForm{
-                gap:8px !important;
+                gap:6px !important;
             }
             #contactForm label{
                 font-size:12px;
             }
             #contactForm input,
             #contactForm textarea{
-                padding:8px 10px;
+                padding:7px 10px;
                 font-size:16px;
             }
             #contactForm textarea{
-                min-height:96px;
+                min-height:82px;
             }
             #contactForm div[style*="margin-top:10px"]{
-                margin-top:6px !important;
+                margin-top:4px !important;
                 gap:8px !important;
             }
             #home{
@@ -781,6 +781,11 @@
         }
 
         function showStatusPopup(title, message, isError){
+            const activeElement = document.activeElement;
+            if(activeElement && (activeElement.tagName === 'INPUT' || activeElement.tagName === 'TEXTAREA')){
+                activeElement.blur();
+            }
+
             const popup = document.getElementById('statusPopup');
             const card = document.getElementById('statusPopupCard');
             const badge = document.getElementById('statusPopupBadge');
@@ -812,25 +817,21 @@
             const formData = new FormData(form);
 
             if(!nameInput.value.trim()){
-                nameInput.focus();
                 showStatusPopup('الاسم الكامل مطلوب', 'يرجى إدخال الاسم الكامل.', true);
                 return;
             }
 
             if(emailInput.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim())){
-                emailInput.focus();
                 showStatusPopup('البريد الإلكتروني غير صحيح', 'يرجى إدخال البريد الإلكتروني بالشكل الصحيح: name@example.com', true);
                 return;
             }
 
             if(!/^\d{11}$/.test(phoneInput.value.trim())){
-                phoneInput.focus();
                 showStatusPopup('رقم الهاتف غير مكتمل', 'يرجى إدخال رقم الهاتف بالشكل الصحيح: 01XXXXXXXXX', true);
                 return;
             }
 
             if(!messageInput.value.trim()){
-                messageInput.focus();
                 showStatusPopup('الرسالة مطلوبة', 'يرجى كتابة تفاصيل الطلب أو القضية.', true);
                 return;
             }
