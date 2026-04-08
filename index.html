@@ -3,9 +3,9 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>مكتب الحسَن — خبرة و ثقة</title>
+    <title>مكتب الحسن — خبرة و ثقة</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23caa33b'/%3E%3Cstop offset='100%25' stop-color='%23f7d77a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Ctext x='32' y='41' text-anchor='middle' font-family='Cairo,Arial,sans-serif' font-size='24' font-weight='700' fill='%23081018'%3EAH%3C/text%3E%3C/svg%3E">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
     <style>
         :root{
             --bg:#0b0f14;
@@ -101,6 +101,7 @@
         }
         .hero-left h1{font-size:42px;line-height:1.25;margin:0 0 14px}
         .hero-left p{color:var(--muted);margin:0 0 18px;font-size:17px;line-height:1.9}
+        .hero-left .lead{color:var(--ink-deep) !important}
         .stats{display:flex;gap:14px;flex-wrap:wrap}
         .stat{background:linear-gradient(180deg,rgba(19,30,46,0.98),rgba(11,18,29,0.98));padding:14px 12px;border-radius:16px;min-width:128px;text-align:center;border:none;box-shadow:0 12px 24px rgba(0,0,0,0.24);font-size:14px;line-height:1.6}
         .stat strong{display:block;font-size:17px;color:var(--gold)
@@ -117,14 +118,35 @@
             padding:14px 10px;
         }
         .hero-left .stat strong{
-            font-size:18px;
+            font-size:22px;
             line-height:1.5;
         }
         .hero-left .stat .muted{
             display:block;
             margin-top:6px;
-            font-size:14px;
+            font-size:16px;
             line-height:1.7;
+            color:#e6eef3;
+        }
+        .hero-left .stat:nth-child(1),
+        .hero-left .stat:nth-child(2){
+            text-align:center;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            padding-top:22px;
+            padding-bottom:18px;
+        }
+        .hero-left .stat:nth-child(1) strong,
+        .hero-left .stat:nth-child(2) strong{
+            font-size:26px;
+            line-height:1.3;
+        }
+        .hero-left .stat:nth-child(1) .muted,
+        .hero-left .stat:nth-child(2) .muted{
+            font-size:18px;
+            line-height:1.6;
+            text-align:center;
         }
         .hero-right{background:#111a27;padding:0;border-radius:0;border:none;display:flex;flex-direction:column;min-height:100%}
         .booking{display:flex;flex-direction:column;gap:10px}
@@ -165,8 +187,8 @@
             align-items:center;
             justify-content:center;
             padding:20px;
-            background:rgba(4,8,14,0.72);
-            backdrop-filter:blur(8px);
+            background:rgba(13,27,42,0.24);
+            backdrop-filter:blur(10px);
             opacity:0;
             pointer-events:none;
             transition:opacity .25s ease;
@@ -180,9 +202,11 @@
             width:min(460px,100%);
             padding:28px 24px;
             border-radius:22px;
-            background:linear-gradient(180deg,rgba(15,23,36,0.98),rgba(9,16,26,0.98));
-            box-shadow:0 24px 60px rgba(0,0,0,0.34);
-            border:1px solid rgba(255,255,255,0.08);
+            background:
+                radial-gradient(circle at top left, rgba(200,155,79,.16), transparent 26%),
+                linear-gradient(180deg, rgba(255,255,255,.96), rgba(250,246,238,.98));
+            box-shadow:0 24px 60px rgba(13,27,42,.18);
+            border:1px solid rgba(15,34,52,.12);
             text-align:center;
             transform:translateY(18px) scale(.98);
             transition:transform .25s ease;
@@ -211,8 +235,9 @@
         }
         .status-popup-card h3{
             margin:0 0 10px;
-            color:#fff;
+            color:var(--ink-deep);
             font-size:24px;
+            font-family:"Cormorant Garamond",serif;
         }
         .status-popup-card p{
             margin:0;
@@ -227,9 +252,11 @@
             width:min(560px,100%);
             padding:26px 24px;
             border-radius:24px;
-            background:linear-gradient(180deg,rgba(15,23,36,0.98),rgba(9,16,26,0.98));
-            box-shadow:0 24px 60px rgba(0,0,0,0.34);
-            border:1px solid rgba(255,255,255,0.08);
+            background:
+                radial-gradient(circle at top left, rgba(200,155,79,.16), transparent 26%),
+                linear-gradient(180deg, rgba(255,255,255,.96), rgba(250,246,238,.98));
+            box-shadow:0 24px 60px rgba(13,27,42,.18);
+            border:1px solid rgba(15,34,52,.12);
             transform:translateY(18px) scale(.98);
             transition:transform .25s ease;
         }
@@ -245,8 +272,9 @@
         }
         .popup-header h3{
             margin:0 0 6px;
-            color:#fff;
+            color:var(--ink-deep);
             font-size:24px;
+            font-family:"Cormorant Garamond",serif;
         }
         .popup-header p{
             margin:0;
@@ -265,6 +293,33 @@
             justify-content:center;
             font-size:20px;
             flex:0 0 auto;
+        }
+        .status-popup-card button,
+        .contact-popup-card button.primary{
+            color:#0d1b2a;
+            background:linear-gradient(135deg,var(--gold-soft),var(--gold));
+            box-shadow:0 14px 30px rgba(200,155,79,.22);
+            border:none;
+            border-radius:999px;
+            font-weight:800;
+        }
+        #contactForm label{
+            color:var(--ink-deep);
+            font-weight:700;
+        }
+        #contactForm input,
+        #contactForm textarea{
+            background:#fffdf9;
+            border:1px solid rgba(15,34,52,.12);
+            color:var(--ink);
+            border-radius:16px;
+            padding:14px 16px;
+        }
+        #contactForm input:focus,
+        #contactForm textarea:focus{
+            border-color:rgba(200,155,79,.7);
+            box-shadow:0 0 0 4px rgba(200,155,79,.14);
+            outline:none;
         }
         /* Footer */
         footer{padding:28px 20px;border-top:none;margin-top:40px}
@@ -315,7 +370,7 @@
             .hero-right{order:2}
             .grid-2{grid-template-columns:1fr}
             footer > div{flex-direction:column;text-align:center}
-            #lawyer-img{height:350px}
+            #lawyerImage{height:350px}
             .carousel-text{min-height:175px;height:175px;font-size:15px}
         }
 
@@ -476,7 +531,7 @@
                 max-width:100%;
             }
             .carousel-text{min-height:170px;height:170px;font-size:15px}
-            #lawyer-img{height:280px}
+            #lawyerImage{height:280px}
             .faq-item{padding:16px 14px;border-radius:16px}
             .faq-item strong{font-size:17px;line-height:1.7}
             section{padding:34px 0}
@@ -541,13 +596,349 @@
             }
         }
         /* Carousel transitions and fixed text size */
-        #lawyer-img{transition:opacity .35s ease;will-change:opacity;display:block;width:100%;height:390px;max-width:100%;object-fit:contain;object-position:center bottom;border-radius:12px;position:relative;z-index:1}
-        .hero-right .carousel{display:flex;flex-direction:column;justify-content:center;position:relative}
-        .hero-right.small-slide #lawyer-img{height:390px}
+        #lawyerImage{transition:opacity .35s ease;will-change:opacity;display:block;width:100%;height:470px;max-width:100%;object-fit:contain;object-position:center bottom;border-radius:12px;position:relative;z-index:1}
+        .hero-right.small-slide #lawyerImage{height:470px}
         .carousel-text{font-size:15px;transition:opacity .35s ease;opacity:1;overflow:visible;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:170px;height:170px;width:100%}
-        .carousel-dots button{transition:background .2s ease}
+        .carousel-dots button{transition:background .2s ease,width .2s ease}
         /* Targeted smaller size for a specific long stat text */
         .small-stat{font-size:13px}
+
+        /* Visual theme from index.html applied to index1 structure */
+        :root{
+            --bg:#f6f1e7;
+            --card:#ffffff;
+            --muted:#5c6774;
+            --gold:#c89b4f;
+            --gold-soft:#f1d39a;
+            --glass:rgba(16,35,56,0.05);
+            --ink:#13202d;
+            --ink-deep:#0d1b2a;
+            --line:rgba(15,34,52,.12);
+            --panel:#102338;
+            --panel-soft:#16314c;
+        }
+        *{font-family:'Cairo',sans-serif}
+        html,body{
+            background:
+                radial-gradient(circle at top right, rgba(200,155,79,.18), transparent 22%),
+                radial-gradient(circle at left 15%, rgba(16,35,56,.08), transparent 30%),
+                linear-gradient(180deg, #fbf7ef 0%, var(--bg) 40%, #efe5d4 100%);
+            color:var(--ink);
+        }
+        header{
+            background:rgba(246,241,231,.72);
+            backdrop-filter:blur(18px);
+            border-bottom:1px solid rgba(15,34,52,.08);
+            padding:18px 20px;
+        }
+        .nav{max-width:1200px}
+        .brand{gap:14px}
+        .logo{
+            width:58px;
+            height:58px;
+            border-radius:18px;
+            background:linear-gradient(145deg,var(--panel) 0%,#07111c 100%);
+            color:#fff;
+            box-shadow:0 18px 34px rgba(13,27,42,.22);
+            position:relative;
+            overflow:hidden;
+            font-weight:800;
+            letter-spacing:.06em;
+        }
+        .logo::before{
+            content:"";
+            position:absolute;
+            inset:1px;
+            border-radius:17px;
+            border:1px solid rgba(241,211,154,.35);
+        }
+        .logo{display:flex;align-items:center;justify-content:center}
+        .brand > div:nth-child(2) > div:first-child{font-size:18px !important;color:var(--ink-deep);font-weight:800}
+        .brand > div:nth-child(2) > div:last-child{font-size:12px !important;color:var(--muted) !important}
+        nav a{color:var(--muted);font-weight:700;border-radius:999px;padding:10px 14px}
+        nav a:hover{background:rgba(16,35,56,.07);color:var(--ink-deep)}
+        .cta,button.primary{
+            color:#0d1b2a;
+            background:linear-gradient(135deg,var(--gold-soft),var(--gold));
+            box-shadow:0 14px 30px rgba(200,155,79,.28);
+            border-radius:999px;
+            font-weight:800;
+        }
+        button.ghost{
+            color:var(--ink-deep);
+            border:1px solid rgba(15,34,52,.12);
+            background:rgba(255,255,255,.72);
+            border-radius:999px;
+        }
+        .container{max-width:1200px;padding:32px 20px}
+        section{
+            padding:64px 0;
+            position:relative;
+        }
+        section::before{
+            content:"";
+            position:absolute;
+            inset-inline:0;
+            top:18px;
+            height:1px;
+            background:linear-gradient(90deg, transparent, rgba(200,155,79,.5), transparent);
+            opacity:.7;
+        }
+        .hero{
+            grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr);
+            gap:28px;
+            padding-top:34px;
+        }
+        .hero-left{
+            background:
+                radial-gradient(circle at top left, rgba(200,155,79,.16), transparent 26%),
+                linear-gradient(180deg, rgba(255,255,255,.82), rgba(250,246,238,.88));
+            border:1px solid var(--line);
+            box-shadow:0 22px 60px rgba(13,27,42,.14);
+            border-radius:28px;
+            padding:34px;
+        }
+        .hero-left h1{
+            color:var(--ink-deep);
+            font-family:"Cormorant Garamond",serif;
+            font-size:clamp(38px,6vw,64px);
+            line-height:1.08;
+        }
+        .hero-left p,.lead{color:var(--muted)}
+        .stat{
+            background:rgba(16,35,56,.93);
+            color:#fff;
+            box-shadow:0 16px 28px rgba(13,27,42,.18);
+            border-radius:18px;
+        }
+        .stat strong{color:var(--gold-soft)}
+        .hero-right{
+            background:linear-gradient(180deg, rgba(16,35,56,.98), rgba(11,22,35,.98));
+            border-radius:28px;
+            border:1px solid rgba(15,34,52,.12);
+            box-shadow:0 22px 60px rgba(13,27,42,.18);
+            padding:18px;
+            overflow:hidden;
+        }
+        .hero-card{
+            position:relative;
+            border-radius:28px;
+            padding:18px;
+            background:linear-gradient(180deg, rgba(16,35,56,.98), rgba(11,22,35,.98));
+            color:#fff;
+            overflow:hidden;
+            border:1px solid rgba(15,34,52,.12);
+            box-shadow:0 22px 60px rgba(13,27,42,.18);
+        }
+        .hero-card::before{
+            content:"";
+            position:absolute;
+            inset:0;
+            background:linear-gradient(180deg, rgba(241,211,154,.14), transparent 30%, transparent 70%, rgba(241,211,154,.1));
+            pointer-events:none;
+        }
+        .portrait-frame{
+            position:relative;
+            border-radius:22px;
+            overflow:hidden;
+            background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+            min-height:520px;
+            display:flex;
+            align-items:flex-end;
+            justify-content:center;
+            padding:18px 18px 0;
+        }
+        .portrait-frame img{
+            position:relative;
+            z-index:1;
+            height:470px;
+            object-fit:contain;
+            object-position:center bottom;
+            transition:opacity .35s ease, transform .35s ease;
+        }
+        .portrait-caption{
+            position:absolute;
+            inset:auto 18px 18px;
+            z-index:3;
+            padding:18px;
+            border-radius:20px;
+            background:rgba(8,17,28,.72);
+            border:1px solid rgba(241,211,154,.16);
+            backdrop-filter:blur(10px);
+        }
+        .portrait-caption h3{
+            margin:0 0 6px;
+            font-size:26px;
+            font-family:"Cormorant Garamond",serif;
+            color:#fff;
+        }
+        .portrait-caption p{
+            margin:0;
+            color:rgba(255,255,255,.76);
+            line-height:1.8;
+        }
+        .carousel-controls{
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:12px;
+            margin-top:16px;
+        }
+        .photo-shell{
+            background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+            border:0;
+            box-shadow:none;
+            border-radius:22px;
+            min-height:520px;
+            padding:18px 18px 0;
+        }
+        .photo-shell::after{display:none}
+        .carousel-copy{
+            padding:18px;
+            width:100%;
+            margin-top:16px;
+            border-radius:20px;
+            background:rgba(8,17,28,.72);
+            border:1px solid rgba(241,211,154,.16);
+            box-shadow:none;
+        }
+        .carousel-text{
+            min-height:170px;
+            height:auto;
+            color:#fff;
+        }
+        .carousel-text .lead{color:rgba(255,255,255,.76)}
+        .carousel-dots button.is-active{
+            width:32px !important;
+            border-radius:999px !important;
+            background:linear-gradient(135deg,var(--gold-soft),var(--gold)) !important;
+        }
+        .carousel-arrow{
+            width:48px;
+            height:48px;
+            border-radius:50%;
+            border:1px solid rgba(255,255,255,.12);
+            background:rgba(255,255,255,.06);
+            color:#fff;
+            cursor:pointer;
+        }
+        .hero-summary{
+            display:grid;
+            grid-template-columns:repeat(3,minmax(0,1fr));
+            gap:10px;
+            margin-top:18px;
+        }
+        .hero-summary .mini-card{
+            padding:14px 12px;
+            border-radius:16px;
+            background:rgba(255,255,255,.05);
+            border:1px solid rgba(255,255,255,.08);
+            text-align:center;
+        }
+        .hero-summary strong{
+            display:block;
+            color:var(--gold-soft);
+            margin-bottom:4px;
+            font-size:20px;
+            line-height:1.4;
+        }
+        .hero-summary .muted{
+            font-size:15px !important;
+            line-height:1.6;
+            color:#e6eef3 !important;
+        }
+        .hero-summary .small-stat{
+            font-size:16px;
+            line-height:1.5;
+        }
+        .hero-summary .mini-card strong{
+            position:relative;
+        }
+        .hero-summary .mini-card strong:not(.small-stat){
+            top:8px;
+        }
+        .hero-summary .mini-card .small-stat{
+            top:2px;
+        }
+        #about .card,#services .card,#contact .card,.privacy-card{
+            background:rgba(255,255,255,.72);
+            border:1px solid var(--line);
+            box-shadow:0 22px 60px rgba(13,27,42,.10);
+            border-radius:22px;
+        }
+        #contact .card{
+            background:#ffffff;
+        }
+        #services .card{
+            position:relative;
+            overflow:hidden;
+        }
+        #services .card::after{
+            content:"";
+            position:absolute;
+            inset:auto auto 0 0;
+            width:120px;
+            height:120px;
+            background:radial-gradient(circle, rgba(200,155,79,.16), transparent 70%);
+            pointer-events:none;
+        }
+        #about h2,#services h2,#faq h2,#contact h2,#privacy h2{
+            color:var(--ink-deep);
+            font-family:"Cormorant Garamond",serif;
+            font-size:clamp(30px,5vw,46px);
+            margin-bottom:10px;
+        }
+        #about .card h3,#services .card h3,#contact .card h3,.privacy-card h3{color:var(--ink-deep);font-family:"Cormorant Garamond",serif}
+        .faq-item{
+            background:rgba(255,255,255,.72);
+            border:1px solid var(--line);
+            box-shadow:0 14px 30px rgba(13,27,42,.08);
+        }
+        .faq-item strong{color:var(--ink-deep)}
+        footer{
+            padding:30px 20px 42px;
+            margin-top:40px;
+        }
+        footer > div{
+            max-width:1200px;
+            margin:0 auto;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            gap:18px;
+            padding:22px 24px;
+            border-radius:24px;
+            color:#fff;
+            background:linear-gradient(135deg,#0d1b2a,#17324c);
+            box-shadow:0 18px 42px rgba(13,27,42,.22);
+        }
+        footer .muted{color:rgba(255,255,255,.72) !important}
+        #privacy .privacy-grid{
+            display:grid;
+            grid-template-columns:repeat(2,minmax(0,1fr));
+            gap:18px;
+            margin-top:14px;
+        }
+        .privacy-card{
+            padding:24px;
+        }
+        .privacy-card ul{
+            list-style:none;
+            padding:0;
+            margin:16px 0 0;
+            display:grid;
+            gap:10px;
+        }
+        .privacy-card li{
+            padding:12px 14px;
+            border-radius:14px;
+            background:rgba(16,35,56,.06);
+            color:var(--muted);
+            line-height:1.8;
+        }
+        @media(max-width:980px){
+            #privacy .privacy-grid{grid-template-columns:1fr}
+        }
     </style>
 </head>
 <body>
@@ -556,8 +947,8 @@
             <div class="brand">
                 <div class="logo">AH</div>
                 <div>
-                    <div style="font-size:16px">مكتب الحسَن</div>
-                    <div style="font-size:12px;color:var(--muted)">محاماة واستشارات قانونية</div>
+                    <div style="font-size:16px">مكتب الحسن</div>
+                    <div style="font-size:12px;color:var(--muted)">للمحاماة والاستشارات القانونية</div>
                 </div>
                 <div class="mobile-nav" id="mobile-nav">
                     <button class="menu-toggle" id="menu-toggle" aria-label="فتح القائمة" aria-expanded="false" aria-controls="mobile-menu">
@@ -570,7 +961,7 @@
                         <a href="#about">من نحن</a>
                         <a href="#services">الخدمات</a>
                         <a href="#faq">الأسئلة الشائعة</a>
-                        <a href="#contact">تواصل</a>
+                        <a href="#contact">تواصل معنا</a>
                     </div>
                 </div>
             </div>
@@ -580,11 +971,11 @@
                     <li><a href="#about">من نحن</a></li>
                     <li><a href="#services">الخدمات</a></li>
                     <li><a href="#faq">الأسئلة الشائعة</a></li>
-                    <li><a href="#contact">تواصل</a></li>
+                    <li><a href="#contact">تواصل معنا</a></li>
                 </ul>
             </nav>
             <div class="nav-actions">
-                <a class="cta" href="#contact">اتصل الآن</a>
+                <a class="cta" href="#contact">استشارة مجانية</a>
             </div>
         </div>
     </header>
@@ -593,7 +984,7 @@
         <!-- Hero / Home -->
         <section id="home" class="hero" aria-label="الرئيسية">
             <div class="hero-left">
-                <h1>مكتب الحسَن — مكتب محاما رفيع المستوى بخبرة تفوق 10 سنوات</h1>
+                <h1>مكتب الحسن — مكتب محاما رفيع المستوى بخبرة تفوق <span dir="ltr" style="display:inline-block">10</span> سنوات</h1>
                 <p class="lead">تمثيل قانوني متميز للأفراد والشركات. أكثر من 2000+ عميل موثوق. قيادة قانونية ذات مكانة عالية والتزام دائم بتحديث المعرفة القانونية.</p>
                 <div class="stats hero-stats">
                     <div class="stat">
@@ -610,30 +1001,37 @@
                     </div>
                 </div>
                 <div style="margin-top:18px;display:flex;gap:12px">
-                    <button class="primary" onclick="window.scrollTo({top: document.querySelector('#contact').offsetTop - 60, behavior:'smooth'})">اتصل الآن</button>
+                    <button class="primary" onclick="window.scrollTo({top: document.querySelector('#contact').offsetTop - 60, behavior:'smooth'})">استشارة مجانية</button>
+                    <a class="ghost" href="https://maps.app.goo.gl/NT9WQayxiJYakkNJA" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;min-height:44px;border-radius:999px;background:rgba(255,255,255,.72);border:1px solid rgba(15,34,52,.12);color:var(--ink-deep)">زيارة المكتب</a>
                 </div>
             </div>
-            <aside class="hero-right">
-                <div class="carousel">
-                    <div class="photo-shell">
-                        <img id="lawyer-img" src="lawyer.png" alt="أحمد حسن" style="display:block;margin:0 auto;">
-                        <div class="carousel-copy">
-                            <div class="carousel-dots" style="display:flex;gap:8px;justify-content:center;margin-top:12px"></div>
-                            <div class="carousel-text" style="margin-top:12px;text-align:center"></div>
-                        </div>
+            <aside class="hero-card hero-right">
+                <div class="portrait-frame">
+                    <img id="lawyerImage" src="lawyer.png" alt="أحمد حسن">
+                    <div class="portrait-caption">
+                        <h3 id="slideTitle"> المحام أحمد حسن</h3>
+                        <p id="slideDescription">تمثيل قانوني احترافي في القضايا المدنية والجنائية والتجارية مع حضور مهني يرسخ الثقة.</p>
                     </div>
                 </div>
+                <div class="carousel-controls">
+                    <div class="carousel-dots" id="carouselDots" aria-label="معرض الصور"></div>
+                    <div style="display:flex;gap:10px">
+                        <button type="button" class="carousel-arrow" id="prevSlide" aria-label="السابق">‹</button>
+                        <button type="button" class="carousel-arrow" id="nextSlide" aria-label="التالي">›</button>
+                    </div>
+                </div>
+                <div class="hero-summary" id="slideStats"></div>
             </aside>
         </section>
 
         <!-- About -->
         <section id="about">
             <h2>من نحن</h2>
-            <p class="lead">مكتب الحسَن للمحاماة يمثل أعلى معايير الاحتراف والسرية. يتمتع بخبرة عملية تفوق عشر سنوات في الترافع والتمثيل القانوني أمام المحاكم والهيئات القضائية، والتفاوض القانوني على مستوى الشركات الكبرى.
+            <p class="lead">مكتب الحسن للمحاماة يمثل أعلى معايير الاحتراف والسرية. يتمتع بخبرة عملية تفوق عشر سنوات في الترافع والتمثيل القانوني أمام المحاكم والهيئات القضائية، والتفاوض القانوني على مستوى الشركات الكبرى.
             <div class="grid-2" style="margin-top:12px">
                 <div class="card">
                     <h3>سيرة ذاتية مختصرة</h3>
-                    <p class="muted">مكتب الحسَن، يضم محامين مرموقين متخصصين في القانون المدني والجنائي وقانون الشركات. خبرة واسعة في التعامل مع القضايا المعقدة وتمثيل العملاء أمام المحاكم العليا.</p>
+                    <p class="muted">مكتب الحسن، يضم محامين مرموقين متخصصين في القانون المدني والجنائي وقانون الشركات. خبرة واسعة في التعامل مع القضايا المعقدة وتمثيل العملاء أمام المحاكم العليا.</p>
                 </div>
                 <div class="card">
                     <h3>الالتزام والتحديث</h3>
@@ -682,8 +1080,8 @@
             <p class="lead">إجابات موجزة للأسئلة المتكررة لتسهيل التواصل واتخاذ القرار.</p>
             <div style="margin-top:12px">
                 <div class="faq-item" onclick="toggleFAQ(this)">
-                    <div><strong>كيف أحجز استشارة؟</strong></div>
-                    <div class="answer muted" style="display:none;margin-top:8px">يمكنك استخدام زر "إرسال الرسالة" لملء نموذج سريع </div>
+                    <div><strong>كيف أحصل على استشارة مجانية؟</strong></div>
+                    <div class="answer muted" style="display:none;margin-top:8px">يمكنك الضغط على زر "احصل على استشارة مجانية" لملء نموذج بسيط وسريع. </div>
                 </div>
                 <div class="faq-item" onclick="toggleFAQ(this)">
                     <div><strong>هل تقدمون استشارات للشركات؟</strong></div>
@@ -692,6 +1090,10 @@
                 <div class="faq-item" onclick="toggleFAQ(this)">
                     <div><strong>ما هو نطاق الأتعاب؟</strong></div>
                     <div class="answer muted" style="display:none;margin-top:8px">تعتمد الأتعاب على طبيعة القضية وتعقيدها. سنوفر تقديرًا مبدئيًا بعد مراجعة الحالة.</div>
+                </div>
+                <div class="faq-item" onclick="toggleFAQ(this)">
+                    <div><strong>هل المعلومات المرسلة عبر الموقع سرية؟</strong></div>
+                    <div class="answer muted" style="display:none;margin-top:8px">يتم التعامل مع البيانات باعتبارها معلومات اتصال أولية وسرية داخلية، مع ضرورة عدم إرسال مستندات حساسة جداً قبل تأكيد التعليمات المناسبة.</div>
                 </div>
             </div>
         </section>
@@ -712,7 +1114,32 @@
                         <h4>ساعات العمل</h4>
                         <p class="muted">كل يوم من 12صباحًا — 12 مساءًا معدا يوم الخميس:مغلق</p>
                     </div>
-                    <button type="button" class="primary" onclick="openContactForm()">إرسال الرسالة</button>
+                    <button type="button" class="primary" onclick="openContactForm()">احصل على استشارة مجانية</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="privacy">
+            <h2>الخصوصية والتنبيهات القانونية</h2>
+            <p class="lead">سياسة خصوصية مبسطة وتنبيهات مهنية واضحة.</p>
+            <div class="privacy-grid">
+                <div class="privacy-card">
+                    <h3>سياسة الخصوصية</h3>
+                    <ul>
+                        <li>نجمع بيانات التواصل الأساسية التي يرسلها الزائر طوعاً عبر النموذج أو البريد الإلكتروني.</li>
+                        <li>تستخدم هذه البيانات لغرض الرد على الاستفسارات وتنظيم التواصل الأولي فقط.</li>
+                        <li>لا ينبغي إرسال مستندات شديدة الحساسية أو أسرار تجارية عبر النموذج قبل التنسيق المباشر مع المكتب.</li>
+                        <li>يمكن طلب تحديث أو حذف بيانات التواصل المرسلة عبر وسائل الاتصال المنشورة في الصفحة.</li>
+                    </ul>
+                </div>
+                <div class="privacy-card">
+                    <h3>إخلاء مسؤولية قانوني</h3>
+                    <ul>
+                        <li>المحتوى المنشور لأغراض تعريفية وتسويقية مهنية فقط ولا يعد استشارة قانونية نهائية.</li>
+                        <li>أي تقييم قانوني معتمد يتطلب مراجعة مستندات الحالة والوقائع المرتبطة بها بشكل مستقل.</li>
+                        <li>النتائج السابقة أو الخبرات المعلنة لا تمثل ضماناً لنتيجة مماثلة في كل ملف.</li>
+                        <li>تنشأ العلاقة القانونية الرسمية فقط بعد اتفاق صريح على نطاق التكليف والأتعاب.</li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -732,8 +1159,8 @@
         <div class="contact-popup-card" role="dialog" aria-modal="true" aria-labelledby="contactPopupTitle">
             <div class="popup-header">
                 <div>
-                    <h3 id="contactPopupTitle">إرسال الرسالة</h3>
-                    <p>املأ البيانات التالية وسيتم تجهيز الرسالة وإرسالها إلى بريد المكتب الإلكتروني.</p>
+                    <h3 id="contactPopupTitle">استشارة مجانية</h3>
+                    <p>املأ البيانات التالية وسيتم إرسال استشارتك إلى بريد المكتب الإلكتروني.</p>
                 </div>
                 <button type="button" class="ghost popup-close" onclick="hideContactForm()">×</button>
             </div>
@@ -746,10 +1173,10 @@
                 <label>الهاتف</label>
                 <input id="ct_phone" name="الهاتف" type="tel" inputmode="numeric" maxlength="11" required placeholder="01XXXXXXXXX" oninput="this.value=this.value.replace(/[^0-9]/g,'').slice(0,11)">
                 <label>رسالتك</label>
-                <textarea id="ct_message" name="رسالتك" rows="5" required placeholder="تفاصيل الطلب أو القضية"></textarea>
+                <textarea id="ct_message" name="رسالتك" rows="5" required placeholder="تفاصيل الاستشارة أو القضية"></textarea>
                 <div style="margin-top:10px;display:flex;align-items:center;gap:12px;flex-wrap:wrap">
-                    <button type="submit" class="primary">إرسال الرسالة</button>
-                    <span class="muted" style="font-size:13px">سيتم تجهيز الرسالة وإرسالها إلى بريد المكتب الإلكتروني.</span>
+                    <button type="submit" class="primary">إرسال الاستشارة</button>
+                    <span class="muted" style="font-size:13px">سيتم إرسال استشارتك مباشرة إلى بريد المكتب الإلكتروني.</span>
                 </div>
             </form>
         </div>
@@ -917,7 +1344,8 @@
                 ...document.querySelectorAll('#about h2, #about .lead, #about .card'),
                 ...document.querySelectorAll('#services h2, #services .lead, #services .card'),
                 ...document.querySelectorAll('#faq h2, #faq .lead, #faq .faq-item'),
-                ...document.querySelectorAll('#contact h2, #contact .lead, #contact .card')
+                ...document.querySelectorAll('#contact h2, #contact .lead, #contact .card'),
+                ...document.querySelectorAll('#privacy h2, #privacy .lead, #privacy .privacy-card')
             ];
 
             targets.forEach((el, index) => {
@@ -951,8 +1379,8 @@
             const slides = [
                 {
                     src: 'lawyer.png',
-                    title: 'أحمد حسن ',
-                    desc: '',
+                    title: '   المحامي احمد حسن ',
+                    desc: 'خبرة 10 سنوات، محامي بالنقض، متخصص في جميع القضايا القانونية.',
                     stats: [
                         {value: '10+', label: 'سنوات خبرة'},
                         {value: '1000+', label: 'عميل خدموا'},
@@ -961,8 +1389,8 @@
                 },
                 {
                     src: 'lawyer2.png',
-                    title: 'أحمد عبدالنبي',
-                    desc: '',
+                    title: ' المحامي احمد عبدالنبي',
+                    desc: 'خبرة 10 سنوات، محامي بالاستئناف العالي ومجلس الدولة، يقدم استشارات وتمثيل قانوني محترف.',
                     stats: [
                         {value: '10+', label: 'سنوات خبرة'},
                         {value: '1000+', label: 'عميل خدموا'},
@@ -971,10 +1399,14 @@
                 }
             ];
 
-            const img = document.getElementById('lawyer-img');
-            const dotsContainer = document.querySelector('.carousel-dots');
-            const textContainer = document.querySelector('.carousel-text');
-            if(!img || !dotsContainer || !textContainer) return;
+            const img = document.getElementById('lawyerImage');
+            const titleContainer = document.getElementById('slideTitle');
+            const descContainer = document.getElementById('slideDescription');
+            const dotsContainer = document.getElementById('carouselDots');
+            const statsContainer = document.getElementById('slideStats');
+            const prevButton = document.getElementById('prevSlide');
+            const nextButton = document.getElementById('nextSlide');
+            if(!img || !dotsContainer || !statsContainer || !titleContainer || !descContainer) return;
 
             let idx = slides.findIndex(s => s.src === img.getAttribute('src'));
             if(idx === -1) idx = 0;
@@ -987,13 +1419,10 @@
             });
 
             function renderStats(s){
-                let html = `<div class="stats" style="justify-content:center;flex-wrap:wrap;gap:8px;margin-top:12px;width:100%">`;
-                html += s.map(it => {
+                return s.map(it => {
                     const small = (it.value === 'الاستئناف العالي / مجلس الدولة') ? ' class="small-stat"' : '';
-                    return `<div class="stat" style="min-width:0;flex:1 1 140px;max-width:calc(33.333% - 6px)"><strong${small}>${it.value}</strong><div class="muted" style="font-size:13px;margin-top:6px">${it.label}</div></div>`;
+                    return `<div class="mini-card"><strong${small}>${it.value}</strong><span class="muted" style="font-size:13px;margin-top:6px;display:block">${it.label}</span></div>`;
                 }).join('');
-                html += `</div>`;
-                return html;
             }
 
             const FADE_MS = 350;
@@ -1005,15 +1434,13 @@
                 const heroRight = document.querySelector('.hero-right');
                 const token = ++transitionToken;
 
-                // Update dots immediately to reflect the change
                 Array.from(dotsContainer.children).forEach((d,i)=>{
-                    d.style.background = (i === slideIndex) ? 'var(--gold)' : 'rgba(255,255,255,0.12)';
+                    d.classList.toggle('is-active', i === slideIndex);
+                    d.style.background = (i === slideIndex) ? '' : 'rgba(255,255,255,0.18)';
                 });
 
                 // Ensure transitions are set
                 img.style.transition = `opacity ${FADE_MS}ms ease`;
-                textContainer.style.transition = `opacity ${FADE_MS}ms ease`;
-
                 const nextImage = preloaded[slideIndex];
 
                 const finishSwap = () => {
@@ -1023,16 +1450,22 @@
                         else heroRight.classList.remove('small-slide');
                     }
                     img.src = s.src;
-                    textContainer.innerHTML = `<div style="font-weight:700">${s.title}</div><p class="lead" style="margin:8px 0 0">${s.desc}</p>` + renderStats(s.stats);
+                    titleContainer.textContent = s.title;
+                    descContainer.textContent = s.desc;
+                    statsContainer.innerHTML = renderStats(s.stats);
                     requestAnimationFrame(()=>{
                         if(token !== transitionToken) return;
                         img.style.opacity = '1';
-                        textContainer.style.opacity = '1';
+                        titleContainer.style.opacity = '1';
+                        descContainer.style.opacity = '1';
+                        statsContainer.style.opacity = '1';
                     });
                 };
 
                 img.style.opacity = '0';
-                textContainer.style.opacity = '0';
+                titleContainer.style.opacity = '0';
+                descContainer.style.opacity = '0';
+                statsContainer.style.opacity = '0';
 
                 if(nextImage && nextImage.complete){
                     setTimeout(finishSwap, FADE_MS);
@@ -1054,10 +1487,11 @@
                     btn.setAttribute('aria-label', 'Slide '+(i+1));
                     btn.style.width = '12px';
                     btn.style.height = '12px';
-                    btn.style.borderRadius = '50%';
+                    btn.style.borderRadius = '999px';
                     btn.style.border = 'none';
                     btn.style.cursor = 'pointer';
-                    btn.style.background = (i===idx) ? 'var(--gold)' : 'rgba(255,255,255,0.12)';
+                    if(i===idx) btn.classList.add('is-active');
+                    btn.style.background = (i===idx) ? '' : 'rgba(255,255,255,0.18)';
                     btn.addEventListener('click', ()=>{ goTo(i); });
                     dotsContainer.appendChild(btn);
                 });
@@ -1067,21 +1501,27 @@
             function next(){ idx = (idx + 1) % slides.length; update(); }
             function goTo(i){ idx = i % slides.length; update(); }
 
-            // Arrow buttons removed per design; navigation handled via dots and auto-slide
-
             // Auto-slide every 3.5 seconds
             let timer = setInterval(()=>{ next(); }, 3500);
             function resetTimer(){ clearInterval(timer); timer = setInterval(()=>{ next(); }, 3500); }
 
-            // Initial render: set up dots, initial image and text without running the fade
             renderDots();
-            // set initial content synchronously to avoid initial flicker
             const initial = slides[idx];
             img.src = initial.src;
-            textContainer.innerHTML = `<div style="font-weight:700">${initial.title}</div><p class="lead" style="margin:8px 0 0">${initial.desc}</p>` + renderStats(initial.stats);
-            // ensure opacities are visible
+            titleContainer.textContent = initial.title;
+            descContainer.textContent = initial.desc;
+            statsContainer.innerHTML = renderStats(initial.stats);
             img.style.opacity = '1';
-            textContainer.style.opacity = '1';
+            titleContainer.style.opacity = '1';
+            descContainer.style.opacity = '1';
+            statsContainer.style.opacity = '1';
+
+            if(prevButton){
+                prevButton.addEventListener('click', ()=>{ prev(); resetTimer(); });
+            }
+            if(nextButton){
+                nextButton.addEventListener('click', ()=>{ next(); resetTimer(); });
+            }
         })();
     </script>
 </body>
