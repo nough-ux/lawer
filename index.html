@@ -1695,9 +1695,7 @@
 
         function getScrollOffset(target){
             if(target && target.id === 'contact'){
-                if(window.innerWidth <= 480) return 230;
-                if(window.innerWidth <= 980) return 190;
-                return 110;
+                return 20;
             }
             return window.innerWidth <= 480 ? 24 : 60;
         }
