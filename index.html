@@ -202,6 +202,9 @@
             }
         }
         .hero-kicker{
+            display:none;
+        }
+        .hero-kicker-tablet{
             display:inline-flex;
             align-items:center;
             gap:10px;
@@ -216,7 +219,7 @@
             letter-spacing:.02em;
             text-shadow:0 0 10px rgba(202,163,59,.45), 0 0 18px rgba(202,163,59,.22);
         }
-        .hero-kicker::before{
+        .hero-kicker-tablet::before{
             content:"";
             width:8px;
             height:8px;
@@ -1238,6 +1241,9 @@
             }
         }
         @media(min-width:700px) and (max-width:1366px){
+            .hero-kicker-tablet{
+                display:inline-flex;
+            }
             .hero-left{
                 padding:clamp(22px, 2.4vw, 28px);
             }
@@ -1334,6 +1340,7 @@
         <!-- Hero / Home -->
         <section id="home" class="hero" aria-label="الرئيسية">
             <div class="hero-left">
+                <div class="hero-kicker-tablet">هوية قانونية رفيعة للملفات التي لا تحتمل الخطأ</div>
                 <h1>مكتب الحسن — محاماة رفيعة المستوى بخبرة تفوق <span dir="ltr" style="display:inline-block">10</span> سنوات</h1>
                 <p class="lead">نمثل الأفراد والشركات في الملفات الحساسة بثقة مهنية، صياغة دقيقة، واستجابة واضحة من أول استشارة حتى آخر خطوة في الملف.</p>
                 <div class="stats hero-stats">
