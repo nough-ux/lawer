@@ -154,6 +154,142 @@
             line-height:1.6;
             text-align:center;
         }
+        .hero-note{
+            margin-top:16px;
+            padding:14px 16px;
+            border-radius:16px;
+            background:rgba(16,35,56,.08);
+            border:1px solid rgba(15,34,52,.10);
+            color:var(--ink-deep);
+            font-size:15px;
+            line-height:1.8;
+            text-align:center;
+        }
+        .hero-note strong{
+            color:var(--gold);
+        }
+        .hero-note-disc{
+            margin-top:10px;
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            gap:8px;
+            padding:8px 14px;
+            border-radius:999px;
+            background:rgba(255,255,255,.62);
+            border:1px solid rgba(15,34,52,.10);
+            color:var(--ink-deep);
+            font-size:14px;
+            font-weight:700;
+        }
+        .hero-note-disc::before{
+            content:"";
+            width:8px;
+            height:8px;
+            border-radius:50%;
+            background:linear-gradient(135deg,var(--gold-soft),var(--gold));
+            box-shadow:0 0 0 5px rgba(200,155,79,.12);
+            animation:hero-disc-blink 1.4s ease-in-out infinite;
+        }
+        @keyframes hero-disc-blink{
+            0%, 100%{
+                opacity:1;
+                transform:scale(1);
+            }
+            50%{
+                opacity:.35;
+                transform:scale(.82);
+            }
+        }
+        .hero-kicker{
+            display:inline-flex;
+            align-items:center;
+            gap:10px;
+            margin-bottom:14px;
+            padding:8px 14px;
+            border-radius:999px;
+            background:rgba(202,163,59,.12);
+            color:#fff;
+            border:1px solid rgba(202,163,59,.24);
+            font-size:14px;
+            font-weight:700;
+            letter-spacing:.02em;
+            text-shadow:0 0 10px rgba(202,163,59,.45), 0 0 18px rgba(202,163,59,.22);
+        }
+        .hero-kicker::before{
+            content:"";
+            width:8px;
+            height:8px;
+            border-radius:50%;
+            background:linear-gradient(135deg,var(--gold-soft),var(--gold));
+            box-shadow:0 0 0 5px rgba(202,163,59,.10);
+            animation:hero-disc-blink 1.4s ease-in-out infinite;
+        }
+        .brand-title-lockup{
+            display:flex;
+            flex-direction:column;
+            gap:2px;
+        }
+        .brand-title-main{
+            font-size:18px;
+            font-weight:800;
+            color:#fff;
+            letter-spacing:.01em;
+        }
+        .brand-title-sub{
+            font-size:12px;
+            color:#b9c5d0;
+        }
+        .hero-actions,
+        nav a,
+        .cta,
+        button.primary,
+        button.ghost,
+        .card,
+        .faq-item,
+        .stat,
+        .hero-note,
+        .hero-note-disc,
+        .mobile-menu a{
+            transition:transform .24s ease, box-shadow .24s ease, background-color .24s ease, color .24s ease, border-color .24s ease;
+        }
+        nav a:hover,
+        .cta:hover,
+        button.primary:hover,
+        button.ghost:hover,
+        .hero-note-disc:hover{
+            transform:translateY(-2px);
+        }
+        .card:hover,
+        .faq-item:hover,
+        .stat:hover{
+            transform:translateY(-4px);
+            box-shadow:0 22px 40px rgba(0,0,0,.22);
+        }
+        #services .card{
+            position:relative;
+            overflow:hidden;
+        }
+        #services .card::before{
+            content:"";
+            position:absolute;
+            inset:0 0 auto 0;
+            height:2px;
+            background:linear-gradient(90deg, transparent, rgba(202,163,59,.75), transparent);
+        }
+        section h2{
+            position:relative;
+            padding-bottom:6px;
+        }
+        section h2::after{
+            content:"";
+            position:absolute;
+            inset:auto auto 0 0;
+            width:64px;
+            height:3px;
+            border-radius:999px;
+            background:linear-gradient(90deg,var(--gold),var(--gold-soft));
+        }
         .hero-right{background:#111a27;padding:0;border-radius:0;border:none;display:flex;flex-direction:column;min-height:100%}
         .booking{display:flex;flex-direction:column;gap:10px}
         label{font-size:13px;color:var(--muted)}
@@ -297,8 +433,10 @@
             display:flex;
             align-items:center;
             justify-content:center;
-            font-size:20px;
+            font-size:24px;
+            line-height:1;
             flex:0 0 auto;
+            transform:translateY(-2px);
         }
         .status-popup-card button,
         .contact-popup-card button.primary{
@@ -377,7 +515,7 @@
                 flex-direction:column;
                 align-items:stretch;
             }
-            .hero-left{order:1}
+            .hero-left{order:1;height:auto}
             .hero-left h1{font-size:28px}
             .hero-right{order:2}
             .grid-2{grid-template-columns:1fr}
@@ -385,11 +523,14 @@
             #lawyerImage{height:350px}
             .carousel-text{min-height:175px;height:175px;font-size:15px}
             .hero-card{
+                top:0;
                 padding:14px;
                 border-radius:24px;
+                height:640px;
             }
             .portrait-frame{
-                min-height:auto;
+                min-height:420px;
+                height:420px;
                 padding:16px 16px 0;
                 display:block;
             }
@@ -402,12 +543,19 @@
                 inset:auto;
                 margin-top:14px;
                 z-index:auto;
+                height:112px;
             }
             .carousel-controls{
                 margin-top:14px;
+                min-height:auto;
             }
             .hero-summary{
                 grid-template-columns:1fr;
+                min-height:94px;
+                height:auto;
+            }
+            .hero-summary .mini-card{
+                height:94px;
             }
         }
 
@@ -523,7 +671,7 @@
                 padding:0;
                 border-radius:0;
             }
-            .hero-left{order:1;padding:18px;border-radius:22px}
+            .hero-left{order:1;padding:18px;border-radius:22px;height:auto}
             .hero-right{order:2;padding:12px;border-radius:22px}
             .hero-left h1{font-size:24px;line-height:1.45}
             .hero-left .lead{font-size:15px;line-height:1.8}
@@ -534,6 +682,17 @@
                 width:100%;
                 margin-top:16px !important;
                 overflow:hidden;
+            }
+            .hero-note{
+                margin-top:12px;
+                padding:12px 14px;
+                font-size:14px;
+                line-height:1.7;
+            }
+            .hero-note-disc{
+                margin-top:8px;
+                font-size:13px;
+                padding:8px 12px;
             }
             .stats{gap:10px}
             .stat{min-width:calc(50% - 5px);padding:10px 8px}
@@ -588,10 +747,13 @@
             .carousel-text{min-height:170px;height:170px;font-size:15px}
             #lawyerImage{height:260px}
             .hero-card{
+                top:0;
                 padding:12px;
+                height:600px;
             }
             .portrait-frame{
-                min-height:auto;
+                min-height:360px;
+                height:360px;
                 padding:10px 10px 0;
                 border-radius:18px;
                 display:block;
@@ -603,24 +765,36 @@
                 padding:14px;
                 border-radius:16px;
                 text-align:center;
+                height:120px;
             }
             .portrait-caption h3{
                 font-size:22px;
             }
             .portrait-caption p{
-                font-size:14px;
-                line-height:1.7;
+                font-size:12.5px;
+                line-height:1.6;
+                overflow-wrap:anywhere;
+                word-break:break-word;
+            }
+            .hero-summary .small-stat{
+                font-size:9px;
+                line-height:1.32;
+                top:4px !important;
             }
             .carousel-controls{
                 flex-wrap:wrap;
                 justify-content:center;
                 gap:10px;
+                min-height:auto;
             }
             .hero-summary{
                 grid-template-columns:1fr;
+                min-height:90px;
+                height:auto;
             }
             .hero-summary .mini-card{
                 padding:12px 10px;
+                height:90px;
             }
             .hero-summary strong{
                 top:0 !important;
@@ -690,7 +864,6 @@
         }
         /* Carousel transitions and fixed text size */
         #lawyerImage{transition:opacity .35s ease;will-change:opacity;display:block;width:100%;height:470px;max-width:100%;object-fit:contain;object-position:center bottom;border-radius:12px;position:relative;z-index:1}
-        .hero-right.small-slide #lawyerImage{height:470px}
         .carousel-text{font-size:15px;transition:opacity .35s ease;opacity:1;overflow:visible;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:170px;height:170px;width:100%}
         .carousel-dots button{transition:background .2s ease,width .2s ease}
         /* Targeted smaller size for a specific long stat text */
@@ -790,6 +963,9 @@
             box-shadow:0 22px 60px rgba(13,27,42,.14);
             border-radius:28px;
             padding:34px;
+            height:760px;
+            display:flex;
+            flex-direction:column;
         }
         .hero-left h1{
             color:var(--ink-deep);
@@ -815,6 +991,7 @@
         }
         .hero-card{
             position:relative;
+            top:-10px;
             border-radius:28px;
             padding:18px;
             background:linear-gradient(180deg, rgba(16,35,56,.98), rgba(11,22,35,.98));
@@ -822,6 +999,9 @@
             overflow:hidden;
             border:1px solid rgba(15,34,52,.12);
             box-shadow:0 22px 60px rgba(13,27,42,.18);
+            height:760px;
+            display:flex;
+            flex-direction:column;
         }
         .hero-card::before{
             content:"";
@@ -836,10 +1016,12 @@
             overflow:hidden;
             background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
             min-height:520px;
+            height:560px;
             display:flex;
             align-items:flex-end;
             justify-content:center;
             padding:18px 18px 0;
+            flex:1 1 auto;
         }
         .portrait-frame img{
             position:relative;
@@ -854,10 +1036,14 @@
             inset:auto 18px 18px;
             z-index:3;
             padding:18px;
+            height:118px;
             border-radius:20px;
             background:rgba(8,17,28,.72);
             border:1px solid rgba(241,211,154,.16);
             backdrop-filter:blur(10px);
+            display:flex;
+            flex-direction:column;
+            justify-content:flex-start;
         }
         .portrait-caption h3{
             margin:0 0 6px;
@@ -876,6 +1062,7 @@
             justify-content:space-between;
             gap:12px;
             margin-top:16px;
+            min-height:48px;
         }
         .photo-shell{
             background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
@@ -920,6 +1107,8 @@
             grid-template-columns:repeat(3,minmax(0,1fr));
             gap:10px;
             margin-top:18px;
+            min-height:98px;
+            height:98px;
         }
         .hero-summary .mini-card{
             padding:14px 12px;
@@ -927,6 +1116,10 @@
             background:rgba(255,255,255,.05);
             border:1px solid rgba(255,255,255,.08);
             text-align:center;
+            height:98px;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
         }
         .hero-summary strong{
             display:block;
@@ -1039,9 +1232,9 @@
         <div class="nav">
             <div class="brand">
                 <div class="logo">AH</div>
-                <div>
-                    <div style="font-size:16px">مكتب الحسن</div>
-                    <div style="font-size:12px;color:var(--muted)">للمحاماة والاستشارات القانونية</div>
+                <div class="brand-title-lockup">
+                    <div class="brand-title-main">مكتب الحسن</div>
+                    <div class="brand-title-sub">محاماة رفيعة. حضور حاسم. ثقة تُبنى على النتيجة.</div>
                 </div>
                 <div class="mobile-nav" id="mobile-nav">
                     <button class="menu-toggle" id="menu-toggle" aria-label="فتح القائمة" aria-expanded="false" aria-controls="mobile-menu">
@@ -1068,7 +1261,7 @@
                 </ul>
             </nav>
             <div class="nav-actions">
-                <a class="cta" href="#contact">استشارة&nbsp;مجانية</a>
+                <a class="cta" href="#contact">احجز&nbsp;استشارة</a>
             </div>
         </div>
     </header>
@@ -1077,8 +1270,9 @@
         <!-- Hero / Home -->
         <section id="home" class="hero" aria-label="الرئيسية">
             <div class="hero-left">
-                <h1>مكتب الحسن — مكتب محاما رفيع المستوى بخبرة تفوق <span dir="ltr" style="display:inline-block">10</span> سنوات</h1>
-                <p class="lead">تمثيل قانوني متميز للأفراد والشركات. أكثر من 2000+ عميل موثوق. قيادة قانونية ذات مكانة عالية والتزام دائم بتحديث المعرفة القانونية.</p>
+                <div class="hero-kicker">هوية قانونية رفيعة للملفات التي لا تحتمل الخطأ</div>
+                <h1>مكتب الحسن — محاماة رفيعة المستوى بخبرة تفوق <span dir="ltr" style="display:inline-block">10</span> سنوات</h1>
+                <p class="lead">نمثل الأفراد والشركات في الملفات الحساسة بثقة مهنية، صياغة دقيقة، واستجابة واضحة من أول استشارة حتى آخر خطوة في الملف.</p>
                 <div class="stats hero-stats">
                     <div class="stat">
                         <strong>10+</strong>
@@ -1094,13 +1288,15 @@
                     </div>
                 </div>
                 <div style="margin-top:18px;display:flex;gap:12px">
-                    <button class="primary" onclick="window.scrollTo({top: document.querySelector('#contact').offsetTop - 60, behavior:'smooth'})">استشارة مجانية</button>
+                    <button class="primary" onclick="window.scrollTo({top: document.querySelector('#contact').offsetTop - 60, behavior:'smooth'})">احجز استشارتك الآن</button>
                     <a class="ghost" href="https://maps.app.goo.gl/NT9WQayxiJYakkNJA" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;min-height:44px;border-radius:999px;background:rgba(255,255,255,.72);border:1px solid rgba(15,34,52,.12);color:var(--ink-deep)">زيارة المكتب</a>
                 </div>
+                <div class="hero-note">مواعيد العمل: يوميًا من <strong>12 ظهرًا</strong> حتى <strong>12 مساءً</strong><br>ما عدا الخميس مغلق</div>
+                <div class="hero-note-disc">سرية تامة في التواصل</div>
             </div>
             <aside class="hero-card hero-right">
                 <div class="portrait-frame">
-                    <img id="lawyerImage" src="lawyer.png" alt="أحمد حسن">
+                    <img id="lawyerImage" src="lawyer.webp" alt="أحمد حسن">
                     <div class="portrait-caption">
                         <h3 id="slideTitle"> المحام أحمد حسن</h3>
                         <p id="slideDescription">تمثيل قانوني احترافي في القضايا المدنية والجنائية والتجارية مع حضور مهني يرسخ الثقة.</p>
@@ -1120,7 +1316,7 @@
         <!-- About -->
         <section id="about">
             <h2>من نحن</h2>
-            <p class="lead">مكتب الحسن للمحاماة يمثل أعلى معايير الاحتراف والسرية. يتمتع بخبرة عملية تفوق عشر سنوات في الترافع والتمثيل القانوني أمام المحاكم والهيئات القضائية، والتفاوض القانوني على مستوى الشركات الكبرى.
+            <p class="lead">نمثل عملاءنا بمنهج قانوني يجمع بين الصرامة المهنية، وضوح التواصل، والقدرة على إدارة القضايا المعقدة بهدوء وثقة. هذه هي الميزة التي تجعل المكتب خيارًا مفضلًا للملفات التي تحتاج إلى حضور قانوني رفيع.
             <div class="grid-2" style="margin-top:12px">
                 <div class="card">
                     <h3>سيرة ذاتية مختصرة</h3>
@@ -1471,7 +1667,7 @@
         (function(){
             const slides = [
                 {
-                    src: 'lawyer.png',
+                    src: 'lawyer.webp',
                     title: '   المحامي احمد حسن ',
                     desc: 'خبرة 10 سنوات، محامي بالنقض، متخصص في جميع القضايا القانونية.',
                     stats: [
@@ -1481,7 +1677,7 @@
                     ]
                 },
                 {
-                    src: 'lawyer2.png',
+                    src: 'lawyer2.webp',
                     title: ' المحامي احمد عبدالنبي',
                     desc: 'خبرة 10 سنوات، محامي بالاستئناف العالي ومجلس الدولة، يقدم استشارات وتمثيل قانوني محترف.',
                     stats: [
@@ -1538,10 +1734,6 @@
 
                 const finishSwap = () => {
                     if(token !== transitionToken) return;
-                    if(heroRight){
-                        if(slideIndex === 1) heroRight.classList.add('small-slide');
-                        else heroRight.classList.remove('small-slide');
-                    }
                     img.src = s.src;
                     titleContainer.textContent = s.title;
                     descContainer.textContent = s.desc;
